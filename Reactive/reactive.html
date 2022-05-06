@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Data&Property</title>
+  </head>
+
+  <body></body>
+
+  <script>
+    let activeEffect = null;
+    const effect = (eff) => {
+      console.log(eff);
+      activeEffect = eff;
+      activeEffect();
+      activeEffect = null;
+    };
+    const targetMap = new WeakMap();
+    const track = (target, key) => {
+      if (activeEffect) {
+        let depMap = targetMap.get(target);
+        if (!depMap) {
+          targetMap.set(target, (depMap = new Map()));
+        }
+        let dep = depMap.get(key);
+        if (!dep) {
+          depMap.set(key, (dep = new Set()));
+        }
+        dep.add(activeEffect);
+      }
+    };
+    const trigger = (target, key) => {
+      let depMap = targetMap.get(target);
+      if (!depMap) {
+        return;
+      }
+      let dep = depMap.get(key);
+      if (dep) {
+        dep.forEach((effect) => {
+          effect();
+        });
+      }
+    };
+    const reactive = (target) => {
+      let handler = {
+        get(t, k, r) {
+          let result = Reflect.get(t, k, r);
+          track(t, k);
+          return result;
+        },
+        set(t, k, v, r) {
+          let oldV = t[k];
+          let result = Reflect.set(t, k, v, r);
+          if (oldV != v) {
+            trigger(t, k);
+          }
+          return result;
+        },
+      };
+
+      return new Proxy(target, handler);
+    };
+    const ref = (rawValue) => {
+      const r = {
+        get value() {
+          track(r, "value");
+          return rawValue;
+        },
+        set value(newValue) {
+          if (rawValue !== newValue) {
+            rawValue = newValue;
+          }
+          trigger(r, "value");
+        },
+      };
+      return r;
+    };
+    let total = 0;
+    const product = reactive({ price: 5, quantity: 2 });
+    const salePrice = ref(0);
+    console.log(`raw total = 0, get ${total}`);
+    effect(() => {
+      salePrice.value = product.price * 0.8;
+    });
+    effect(() => {
+      total = salePrice.value * product.quantity;
+    });
+    console.log(`effected total = 8, get ${total}`);
+    product.quantity = 4;
+    console.log(`after quantity chanced total = 16, get ${total}`);
+    product.quantity = 5;
+    console.log(`after quantity chanced total = 20, get ${total}`);
+    salePrice.value = 20;
+    console.log(targetMap);
+  </script>
+</html>
