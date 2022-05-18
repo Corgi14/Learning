@@ -13,23 +13,27 @@ function mergeTwoLists(
 ): ListNode | null {
   let dummy = new ListNode(-1);
   let p = dummy;
-  while (list1 !== null && list2 !== null) {
-    if (list1.val > list2.val) {
-      p.next = list2;
-      list2 = list2.next;
+  let p1 = list1,
+    p2 = list2;
+  while (p1 && p2) {
+    if (p1.val < p2.val) {
+      p.next = p1;
+      p1 = p1.next;
     } else {
-      p.next = list1;
-      list1 = list1.next;
+      p.next = p2;
+      p2 = p2.next;
     }
+
     p = p.next;
   }
-  if (list1.next !== null) {
-    p.next = list1;
+  if (p1) {
+    p.next = p1;
   }
-  if (list2.next !== null) {
-    p.next = list2;
+  if (p2) {
+    p.next = p2;
   }
   return dummy.next;
 }
 // @lc code=end
 //2022.5.17 二刷 没记住
+//2022.5.17 三刷 比较p1 p2时没有比较.val
