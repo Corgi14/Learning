@@ -20,14 +20,24 @@ import ListNode from "../data_structure/ListNode";
  */
 
 function reverseList(head: ListNode | null): ListNode | null {
-  let dummy = new ListNode(-1);
-  let next: ListNode = null;
-  while (head) {
-    next = head.next;
-    head.next = dummy.next;
-    dummy.next = head;
-    head = next;
+  //iterate
+  // let dummy = new ListNode(-1)
+  // let next: ListNode = null
+  // while(head) {
+  //     next = head.next
+  //     head.next = dummy.next
+  //     dummy.next = head
+  //     head = next
+  // }
+  // return dummy.next
+
+  //recursion
+  if (head == null || head.next == null) {
+    return head;
   }
-  return dummy.next;
+  let last = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return last;
 }
 // @lc code=end

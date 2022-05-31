@@ -39,3 +39,4 @@ function detectCycle(head: ListNode | null): ListNode | null {
   return slow;
 }
 // @lc code=end
+//2022.5.27 二刷 忘记对 第一次相遇后让slow回到head 两个指针同速前进直到第二次相遇 此时slow就是环的开始点

@@ -37,3 +37,4 @@ function mergeTwoLists(
 // @lc code=end
 //2022.5.17 二刷 没记住
 //2022.5.17 三刷 比较p1 p2时没有比较.val
+//2022.5.25 四刷 通过
