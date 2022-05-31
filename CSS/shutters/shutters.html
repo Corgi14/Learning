@@ -13,7 +13,9 @@
       body {
         background-color: #7c757e;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
       }
       .shutters {
         width: 900px;
@@ -35,6 +37,28 @@
       img {
         width: 400px;
       }
+      .test {
+        width: 500px;
+        height: 100px;
+        overflow: hidden;
+        transition: 1s;
+      }
+      .test:hover {
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
+      .cyan {
+        background-color: cyan;
+      }
+      .red {
+        background-color: red;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .purple {
+        background-color: purple;
+      }
     </style>
   </head>
   <body>
@@ -46,5 +70,11 @@
       <div class="piece"><img src="./src/file-5.gif" /></div>
       <div class="piece"><img src="./src/file-6.gif" /></div>
     </div>
+    <!-- <div class="shutters">
+      <div class="test cyan"></div>
+      <div class="test red"></div>
+      <div class="test blue"></div>
+      <div class="test purple"></div>
+    </div> -->
   </body>
 </html>

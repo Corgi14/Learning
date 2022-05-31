@@ -1,0 +1,326 @@
+/* https://www.googlefonts.cn/ */
+@import url("https://fonts.font.im/css?family=Poppins:300,300i,400,400i");
+
+:root {
+  --main-desktop-font-size: 30px;
+  --main-pad-font-size: calc(var(--main-desktop-font-size) * 4.8 / 6);
+  --main-border-color: #757683;
+  --main-color: #0087de;
+  --main-background-color: #fff;
+  --header-toogle-width: 30px;
+  --header-pad-logo-width: calc(var(--header-toogle-width) * 5 / 6);
+  --main-text-color: #fff;
+  --screen-desktop-padding-top-bottom: 50px;
+  --screen-desktop-padding-left-right: 100px;
+  --screen-pad-padding-top-bottom: 10px;
+  --screen-pad-padding-left-right: 30px;
+  --footer-margin-right: 30px;
+  --footer-icon-width: 30px;
+  --footer-pad-icon-width: calc(var(--footer-icon-width) * 5 / 6);
+  --text-description-h1-desktop-size: 3em;
+  --text-description-h2-desktop-size: 2.5em;
+  --text-description-p-desktop-size: 1rem;
+  --text-description-h1-pad-size: 2.5em;
+  --text-description-h2-pad-size: 2em;
+  --text-description-p-pad-size: 1rem;
+  --menu-width: 10em;
+  --main-structure-left: 2em;
+  --main-structure-bottom: 1em;
+  --menu-margin-bottom: 2em;
+}
+
+* {
+  /* 一个元素的总宽度和总高度计算方式 */
+  box-sizing: border-box;
+  /* 禁用用户拖拽 */
+  -webkit-user-drag: none;
+}
+
+html,
+body {
+  /* unset all properties */
+  all: unset;
+  /* screen size */
+  width: 100vw;
+  min-height: 100vh;
+  /* font */
+  font-family: "Poppins", sans-serif;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+}
+
+.main-structure,
+.aside-menu {
+  font-size: var(--main-desktop-font-size);
+  line-height: 1em;
+}
+
+.main-structure,
+.main-structure header,
+.main-structure .content,
+.main-structure footer {
+  width: 100%;
+  /* 开发阶段清晰看到元素边框 */
+  /* border: 5px dashed var(--main-border-color); */
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+  /* 全局动画时间 */
+  transition: 0.5s;
+}
+
+.main-structure {
+  position: absolute;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  transform: perspective(5000px) translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg)
+    rotateZ(0deg);
+  transition: 0.5s;
+}
+
+.main-structure.active {
+  width: calc(100% - var(--menu-width) - var(--main-structure-left));
+  height: calc(100vh - 2 * var(--main-structure-left));
+  top: var(--main-structure-left);
+  right: var(--menu-width);
+  bottom: var(--main-structure-left);
+  left: var(--main-structure-left);
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transform: perspective(5000px) translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(30deg)
+    rotateZ(0deg);
+}
+
+.main-structure header,
+.main-structure footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-structure header .menu-logo {
+  width: var(--header-toogle-width);
+  height: var(--header-toogle-width);
+  background: url("../src/icon/menu.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--header-toogle-width);
+  /* 100%反转颜色 */
+  filter: invert(100%);
+}
+
+.main-structure header .menu-logo:hover {
+  border: 3px solid black;
+  border-radius: 50%;
+  animation: menu_logo ease-in 1s infinite;
+}
+
+.main-structure header .menu-logo.active {
+  background: url("../src/icon/close.svg");
+  /* background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--header-toogle-width); */
+}
+
+.main-structure header a {
+  display: inline-block;
+  /* 去掉下划线 */
+  text-decoration: none;
+  color: var(--main-text-color);
+  transition: 0.2s;
+}
+
+.main-structure header a:hover {
+  transform: scale(1.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.main-structure header,
+.main-structure .content,
+.main-structure footer {
+  padding: var(--screen-desktop-padding-top-bottom) var(--screen-desktop-padding-left-right);
+}
+
+.main-structure footer {
+  justify-content: flex-start;
+}
+
+.main-structure footer a:not(:last-child) {
+  margin-right: var(--footer-margin-right);
+}
+
+.main-structure footer a img {
+  width: var(--footer-icon-width);
+  filter: invert(100%);
+  transition: 0.3s;
+}
+
+.main-structure footer a img:hover {
+  transform: translateY(-8px);
+}
+
+.main-structure .content img,
+.main-structure .content .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+}
+
+.main-structure .content img {
+  object-fit: cover;
+  clip-path: ellipse(0% 0% at 0% 50%);
+  padding: 0;
+  margin: 0;
+  z-index: -1;
+}
+
+.main-structure .content img.active {
+  clip-path: ellipse(150% 70% at 0% 50%);
+}
+
+.content .text-description h1,
+.content .text-description h2,
+.content .text-description p {
+  margin: 0;
+  padding: 0;
+}
+
+.content .text-description h1,
+.content .text-description h2 {
+  text-transform: uppercase;
+}
+
+.content .text-description h1 {
+  font-size: var(--text-description-h1-desktop-size);
+  line-height: 1em;
+}
+
+.content .text-description h2 {
+  font-size: var(--text-description-h2-desktop-size);
+  line-height: 1em;
+}
+
+.content .text-description p {
+  font-size: var(--text-description-p-desktop-size);
+  line-height: 1.5em;
+  max-width: 700px;
+  min-width: 400px;
+  margin: 3em 0;
+}
+
+.aside-menu a,
+.content .text-description a {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 1em;
+  color: var(--main-text-color);
+  border: 2px solid var(--main-background-color);
+  padding: 10px 30px;
+  letter-spacing: 2px;
+  border-radius: 30px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1), -1px -1px 8px rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+}
+
+.aside-menu a:hover,
+.content .text-description a:hover {
+  color: var(--main-text-color);
+  background-color: var(--main-color);
+  letter-spacing: 5px;
+}
+
+.aside-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--menu-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.aside-menu a {
+  border-color: var(--main-color);
+  color: var(--main-color);
+  min-width: calc(var(--menu-width));
+  text-align: center;
+}
+
+.aside-menu a:not(:last-child) {
+  margin-bottom: var(--menu-margin-bottom);
+}
+
+@media (width < 1200px) {
+  .aside-menu,
+  .main-structure,
+  .aside-menu {
+    font-size: var(--main-pad-font-size);
+  }
+
+  .main-structure header,
+  .main-structure .content,
+  .main-structure footer {
+    padding: var(--screen-pad-padding-top-bottom) var(--screen-pad-padding-left-right);
+  }
+
+  .main-structure header .menu-logo {
+    background-size: var(--header-pad-logo-width);
+  }
+
+  .main-structure footer a img {
+    width: var(--footer-pad-icon-width);
+  }
+
+  .content .text-description h1 {
+    font-size: var(--text-description-h1-pad-size);
+  }
+
+  .content .text-description h2 {
+    font-size: var(--text-description-h2-pad-size);
+  }
+
+  .content .text-description p {
+    font-size: var(--text-description-p-pad-size);
+    max-width: 500px;
+    min-width: 300px;
+  }
+
+  .content .text-description a {
+    color: var(--main-text-color);
+    border: 2px solid var(--main-background-color);
+    padding: 8px 20px;
+    letter-spacing: 1px;
+    border-radius: 20px;
+  }
+
+  .content .text-description a:hover {
+    letter-spacing: 3px;
+  }
+}
+
+@keyframes menu_logo {
+  from,
+  to {
+    filter: invert(100%);
+    transform: scale(1);
+  }
+  50% {
+    filter: invert(0%);
+    transform: scale(1.5);
+  }
+}
