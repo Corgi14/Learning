@@ -34,6 +34,7 @@
         setTimeout(() => {
           span.style.opacity = "0";
           span.style.transform = "translateY(-230px)";
+          span.style.userSelect = "none";
         }, 1500);
         var child = document.getElementsByTagName("span");
         for (let i = 0; i < child.length; i++) {
