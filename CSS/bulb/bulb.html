@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bulb</title>
+    <style>
+      @import url("https://fonts.font.im/css?family=Poppins:300,300i,400,400i,600,600i");
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background-color: #434750;
+        display: flex;
+        justify-content: center;
+      }
+      .a {
+        position: relative;
+        top: 300px;
+        font: 600 100px "";
+        color: #333;
+        cursor: pointer;
+      }
+      .a span {
+        transition: 0.5s;
+        transition-delay: calc(var(--i) * 0.1s);
+      }
+      .a:hover span {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a">
+      <span style="--i: 1">C</span>
+      <span style="--i: 2">O</span>
+      <span style="--i: 3">R</span>
+      <span style="--i: 4">G</span>
+      <span style="--i: 5">I</span>
+      <span style="--i: 6">/</span>
+      <span style="--i: 7">C</span>
+      <span style="--i: 8">S</span>
+      <span style="--i: 9">S</span>
+    </div>
+  </body>
+</html>

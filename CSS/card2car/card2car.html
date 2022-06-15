@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        transition: 0.6s;
+        user-select: none;
+      }
+      body {
+        background-color: #434750;
+        display: flex;
+        justify-content: center;
+      }
+      .a {
+        position: absolute;
+        top: 100px;
+      }
+      .a:hover {
+        transform: skew(-55deg, 10deg);
+      }
+      .a:hover .b {
+        background-color: yellowgreen;
+      }
+      .a:hover .c {
+        transform: skew(55deg) translateX(-15px);
+        transform-origin: top;
+      }
+      .a:hover .d::after {
+        transform: translateY(-200px) translateX(180px);
+      }
+      .b {
+        width: 300px;
+        height: 150px;
+        background: #fff;
+      }
+      .c {
+        font-size: 60px;
+        display: block;
+        color: rgb(170, 200, 200);
+      }
+      .d,
+      .d::after {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(230, 70, 150);
+        border-radius: 50%;
+        position: absolute;
+        z-index: 99;
+        bottom: 10px;
+      }
+      .a:hover .d {
+        bottom: 40px;
+        transform: skew(45deg, 10deg) translateX(480px) translateY(-50px);
+      }
+      .a:hover .e {
+        transform: translateX(65px);
+      }
+      .a:hover .f {
+        transform: skew(55deg) translateX(116px);
+      }
+      .d::after {
+        content: "";
+        translate: 0.7s;
+      }
+      .e {
+        width: 300px;
+        height: 65px;
+        background-color: rgb(100, 40, 190);
+      }
+      .f {
+        width: 300px;
+        height: 70px;
+        background-color: rgb(230, 70, 150);
+        display: block;
+        text-align: right;
+        font-size: 26px;
+        line-height: 70px;
+        text-decoration: none;
+        color: blanchedalmond;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a">
+      <div class="b"></div>
+      <span class="c">CORGI/CSS</span>
+      <div class="d"></div>
+      <div class="e"></div>
+      <a href="#" class="f">Hello Nina</a>
+    </div>
+  </body>
+</html>

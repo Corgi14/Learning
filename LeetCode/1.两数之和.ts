@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-function twoSum(nums: number[], target: number): number[] {
+function twoSum1(nums: number[], target: number): number[] {
   let map = new Map();
   for (let index = 0; index < nums.length; index++) {
     const got = nums[index];
