@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social bar</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #434750;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .shell {
+        width: 550px;
+        height: 100px;
+        border: solid 2px rgb(210, 210, 210);
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+      }
+      .shell::after {
+        content: "Contact me";
+        font-size: 21px;
+        position: absolute;
+        right: 0;
+        top: -35px;
+        color: rgb(210, 210, 210);
+        text-transform: uppercase;
+      }
+      .shell::before {
+        content: "";
+        position: absolute;
+        width: 70%;
+        height: 2px;
+        background-color: rgb(210, 210, 210);
+        top: -21px;
+        left: 0;
+      }
+      .box {
+        width: 25%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box img {
+        display: block;
+        width: 64px;
+        height: 5;
+        opacity: 0.64;
+        transition: 0.2s;
+      }
+      .box:hover img {
+        opacity: 8;
+      }
+      .box::after {
+        position: absolute;
+        content: attr(data-i);
+        width: 100%;
+        display: block;
+        text-align: center;
+        bottom: 140px;
+        left: 0;
+        font-size: 30px;
+        padding: 20px 0;
+        background-color: rgb(210, 210, 210);
+        color: #434750;
+        transition: 0.2s;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      .box:hover::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="box" data-i="+86 18502191206"><img src="/src/icon/phone.svg" alt="" /></div>
+      <div class="box" data-i="949952431"><img src="/src/icon/qq.svg" alt="" /></div>
+      <div class="box" data-i="shisiloudajiangyou"><img src="/src/icon/wechat.svg" alt="" /></div>
+      <div class="box" data-i="名侦探_柯基"><img src="/src/icon/weibo.svg" alt="" /></div>
+    </div>
+  </body>
+</html>
