@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color: #7c757e;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+      }
+      .shutters {
+        width: 900px;
+        height: 300px;
+        position: relative;
+        top: 200px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+      }
+      .piece {
+        transition: 0.7s;
+        overflow: hidden;
+      }
+      .piece:hover {
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
+      img {
+        width: 400px;
+      }
+
+      /* .test {
+        width: 500px;
+        height: 100px;
+        overflow: hidden;
+        transition: 1s;
+      }
+      .test:hover {
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
+      .cyan {
+        background-color: cyan;
+      }
+      .red {
+        background-color: red;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .purple {
+        background-color: purple;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="shutters">
+      <div class="piece"><img src="/src/file-1.gif" /></div>
+      <div class="piece"><img src="/src/file-2.gif" /></div>
+      <div class="piece"><img src="/src/file-3.gif" /></div>
+      <div class="piece"><img src="/src/file-4.gif" /></div>
+      <div class="piece"><img src="/src/file-5.gif" /></div>
+      <div class="piece"><img src="/src/file-6.gif" /></div>
+    </div>
+    <!-- <div class="shutters">
+      <div class="test cyan"></div>
+      <div class="test red"></div>
+      <div class="test blue"></div>
+      <div class="test purple"></div>
+    </div> -->
+  </body>
+</html>
