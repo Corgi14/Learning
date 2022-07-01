@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://fonts.googlefonts.cn/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
+    <title>Drawing board</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #434750;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 800px;
+      }
+      .square {
+        width: 16px;
+        height: 16px;
+        margin: 2px;
+        background-color: rgba(99, 110, 114, 1);
+        box-shadow: 0 0 2px rgba(0, 0, 0, 1);
+        transition: 1s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container" class="container"></div>
+    <script>
+      const container = document.getElementById("container");
+      const colors = ["#55efc4", "#81ecec", "#74b9ff", "#a29bfe", "#ffeaa7", "#fab1a0", "#ff7675", "#fd79a8"];
+      const SQUARES = 1000;
+      for (let i = 0; i < SQUARES; i++) {
+        const square = document.createElement("div");
+        square.classList.add("square");
+        square.addEventListener("mouseover", () => {
+          const color = getRandomColor();
+          square.style.background = color;
+          square.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`;
+        });
+        square.addEventListener("mouseout", () => {
+          square.style.background = rgba(99, 110, 114, 1);
+        });
+        container.appendChild(square);
+      }
+      const getRandomColor = () => {
+        return colors[Math.floor(Math.random() * colors.length)];
+      };
+    </script>
+  </body>
+</html>
