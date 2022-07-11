@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://fonts.googlefonts.cn/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
+    <title>Shutters - 2</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #434750;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        width: 90%;
+        height: 700px;
+        display: flex;
+      }
+      .box {
+        flex: 1;
+        overflow: hidden;
+        transition: 0.5s;
+        margin: 0 20px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        border: 10px solid #fff;
+        background-color: #fff;
+      }
+      .box img {
+        width: 200%;
+        height: 85%;
+        object-fit: cover;
+        transition: 0.5s;
+        position: relative;
+        left: -15px;
+        top: -15px;
+      }
+      .box span {
+        font-weight: 400;
+        font-size: 32px;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box:hover {
+        flex-basis: 340px;
+      }
+      .box:hover img {
+        left: 0;
+        top: -15px;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"><img src="/src/img-11.png" alt="" /><span>paradise point</span></div>
+      <div class="box"><img src="/src/img-12.png" alt="" /><span>shibui</span></div>
+      <div class="box"><img src="/src/img-13.png" alt="" /><span>cinnamon bay</span></div>
+      <div class="box"><img src="/src/img-14.png" alt="" /><span>fort christia</span></div>
+      <div class="box"><img src="/src/img-15.png" alt="" /><span>brewers bay</span></div>
+    </div>
+  </body>
+</html>

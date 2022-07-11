@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://fonts.googlefonts.cn/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
+    <title>Drag and drop</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .dashed_r {
+        border: dashed red 2px;
+      }
+      .dashed_g {
+        border: dashed green 2px;
+      }
+      .dashed_b {
+        border: dashed blue 2px;
+      }
+      body {
+        background-color: #434750;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      main {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+      }
+      .draggable_container {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+      }
+      .draggable,
+      .droppable {
+        border-radius: 4px;
+      }
+      .draggable {
+        width: 25vw;
+        height: 25vw;
+        background: cyan;
+      }
+      .droppable {
+        width: 30vw;
+        height: 30vw;
+        border: 8px cyan dashed;
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+      .droppable::before {
+        content: "Plase drag and drop item here";
+        display: block;
+        position: absolute;
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.4vw;
+        color: hsl(0, 1%, 53%);
+      }
+      .droppable img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+      }
+      .dragover {
+        border: 8px dashed #ffae00;
+      }
+      .dropped {
+        border: 8px dashed #48ff00;
+      }
+      .dropped::before {
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="draggable_container">
+        <div id="draggable" class="draggable" draggable="true"></div>
+      </div>
+      <div class="droppable" id="droppable"></div>
+    </main>
+    <script>
+      const draggable = document.getElementById("draggable");
+      const droppable = document.getElementById("droppable");
+
+      draggable.addEventListener("dragstart", handleDragStart);
+      function handleDragStart(e) {
+        e.dataTransfer.setData("text/plain", e.target.id);
+      }
+
+      droppable.addEventListener("dragover", handleDragOver);
+      function handleDragOver(e) {
+        e.preventDefault();
+        droppable.classList.add("dragover");
+      }
+      droppable.addEventListener("dragleave", handleDragLeave);
+      function handleDragLeave(e) {
+        droppable.classList.remove("dragover");
+      }
+
+      droppable.addEventListener("drop", handleDrop);
+      function handleDrop(e) {
+        e.preventDefault();
+        // const draggedId = e.dataTransfer.getData("text/plain");
+        // droppable.appendChild(document.getElementById(draggedId));
+        droppable.classList.add("dropped");
+        [...e.dataTransfer.items].forEach((item) => {
+          if (item.kind === "file") {
+            const file = item.getAsFile();
+            createPreview(file);
+          }
+        });
+      }
+      function createPreview(imageFile) {
+        if (!imageFile.type.startsWith("image/")) {
+          return;
+        }
+        const image = document.createElement("img");
+        image.src = URL.createObjectURL(imageFile);
+        image.onload = function () {
+          URL.revokeObjectURL(this.src);
+        };
+        if (droppable.hasChildNodes()) {
+          droppable.removeChild(droppable.childNodes[0]);
+        }
+        droppable.appendChild(image);
+      }
+    </script>
+  </body>
+</html>
