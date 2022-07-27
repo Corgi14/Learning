@@ -22,7 +22,7 @@
         margin-bottom: 20px;
         text-align: center;
       }
-      input{
+      input {
         display: none;
       }
       label {
@@ -45,32 +45,32 @@
       }
       .cross::before,
       .cross:after {
-        content: '';
+        content: "";
         border-top: 2px solid #50545d;
         width: 15px;
         display: block;
         margin-top: 20px;
-        transition: .3s;
+        transition: 0.3s;
       }
       .cross::after {
         transform: rotate(90deg);
         margin-top: -2px;
       }
-      input:checked~label .cross::before {
+      input:checked ~ label .cross::before {
         transform: rotate(180deg);
       }
-      input:checked~label .cross::after {
+      input:checked ~ label .cross::after {
         transform: rotate(0deg);
       }
       .content {
         box-sizing: border-box;
-        font-size: .9rem;
+        font-size: 0.9rem;
         margin: 10px 10px;
         max-height: 0px;
         overflow: hidden;
-        transition: max-height .5s;
+        transition: max-height 0.5s;
       }
-      input:checked~.content {
+      input:checked ~ .content {
         max-height: 400px;
         transition: max-height 1s;
       }
@@ -78,14 +78,14 @@
         margin-top: 20px;
         max-height: 0px;
         overflow: hidden;
-        transition: max-height .5s;
+        transition: max-height 0.5s;
       }
       .secondaryMenus label {
         border: none;
         box-shadow: none;
         margin: 0;
       }
-      input:checked~.secondaryMenus {
+      input:checked ~ .secondaryMenus {
         max-height: 400px;
         transition: max-height 1s;
         border-bottom: 2px solid #50545d;
@@ -96,46 +96,63 @@
     <div class="wrapper">
       <h1>Accordion secondary menu</h1>
       <div class="wrap-1">
-        <input type="radio" id="tab-1" name="tabs">
+        <input type="radio" id="tab-1" name="tabs" />
         <label for="tab-1">
           <div>First level menu - one</div>
           <div class="cross"></div>
         </label>
-        <div class="content">Within the treble and bass casings of an accordion are the free reeds, small metal tongues arranged in rows alongside pallets (valves) that are cut into metal frames. When air flows around a reed from one side, it vibrates above its frame; airflow in the opposite direction does not cause vibration. </div>
+        <div class="content">
+          Within the treble and bass casings of an accordion are the free reeds,
+          small metal tongues arranged in rows alongside pallets (valves) that
+          are cut into metal frames. When air flows around a reed from one side,
+          it vibrates above its frame; airflow in the opposite direction does
+          not cause vibration.
+        </div>
       </div>
       <div class="wrap-2">
-        <input type="radio" id="tab-2" name="tabs">
+        <input type="radio" id="tab-2" name="tabs" />
         <label for="tab-2">
           <div>First level menu - two</div>
           <div class="cross"></div>
         </label>
-        <div class="content">Wind is admitted to the reeds selectively through pallets controlled by a keyboard or set of finger buttons. Each pallet admits wind to a pair of reeds, one of which is mounted to sound on the press of the bellows, the other, on the draw.</div>
+        <div class="content">
+          Wind is admitted to the reeds selectively through pallets controlled
+          by a keyboard or set of finger buttons. Each pallet admits wind to a
+          pair of reeds, one of which is mounted to sound on the press of the
+          bellows, the other, on the draw.
+        </div>
       </div>
       <div class="wrap-3">
-        <input type="radio" id="tab-3" name="tabs">
-          <label for="tab-3">
-            <div>First level menu - three</div>
-            <div class="cross"></div>
-          </label>
-          <div class="secondaryMenus">
-            <div class="secondaryMenu-wrap">
-              <input type="radio" id="secondaryMenu-1" name="secondaryMenu">
-              <label for="secondaryMenu-1">
-                <div>Second level menu - one</div>
-                <div class="cross"></div>
-              </label>
-              <div class="content">Some accordions, including the earliest ones, are “single-action,” in which the paired reeds sound adjacent notes of the diatonic (seven-note) scale</div>
-            </div>
-            <div class="secondaryMenu-wrap">
-              <input type="radio" id="secondaryMenu-2" name="secondaryMenu">
-              <label for="secondaryMenu-2">
-                <div>Second level menu - one</div>
-                <div class="cross"></div>
-              </label>
-              <div class="content">For the left hand there are typically two keys, or basses, one providing a bass note</div>
+        <input type="radio" id="tab-3" name="tabs" />
+        <label for="tab-3">
+          <div>First level menu - three</div>
+          <div class="cross"></div>
+        </label>
+        <div class="secondaryMenus">
+          <div class="secondaryMenu-wrap">
+            <input type="radio" id="secondaryMenu-1" name="secondaryMenu" />
+            <label for="secondaryMenu-1">
+              <div>Second level menu - one</div>
+              <div class="cross"></div>
+            </label>
+            <div class="content">
+              Some accordions, including the earliest ones, are “single-action,”
+              in which the paired reeds sound adjacent notes of the diatonic
+              (seven-note) scale
             </div>
           </div>
-        </input>
+          <div class="secondaryMenu-wrap">
+            <input type="radio" id="secondaryMenu-2" name="secondaryMenu" />
+            <label for="secondaryMenu-2">
+              <div>Second level menu - one</div>
+              <div class="cross"></div>
+            </label>
+            <div class="content">
+              For the left hand there are typically two keys, or basses, one
+              providing a bass note
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
