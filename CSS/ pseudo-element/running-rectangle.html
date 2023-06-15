@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Penrose-triangle</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        height: 100vh;
+        background-color: #468988;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .loader {
+        position: relative;
+        width: 5rem;
+        height: 5rem;
+        /* background: white; */
+      }
+      .loader::before {
+        content: "";
+        height: 5rem;
+        width: 5rem;
+        background: #f08080;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 4px;
+        animation: run 1s ease-out infinite;
+      }
+      .loader::after {
+        content: "";
+        height: 1rem;
+        width: 5rem;
+        background: yellow;
+        position: absolute;
+        top: 120%;
+        left: 0;
+        border-radius: 50%;
+        animation: scale 1s ease-in infinite;
+      }
+
+      @keyframes scale {
+        0%,
+        100% {
+          transform: scale(1, 1);
+        }
+        50% {
+          transform: scale(1.2, 1);
+        }
+      }
+
+      @keyframes run {
+        15% {
+          border-bottom-right-radius: 3px;
+        }
+        25% {
+          transform: translateX(20px) translateY(-20px) rotate(22.5deg);
+        }
+        50% {
+          transform: translateX(0px)  translateY(15px) rotate(45deg);
+          border-bottom-right-radius: 40px;
+        }
+        75% {
+          transform: translateX(-10px) translateY(0px) rotate(67.5deg);
+        }
+        100% {
+          transform: translateX(0px) translateY(0px) rotate(90deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader"></div>
+  </body>
+</html>
