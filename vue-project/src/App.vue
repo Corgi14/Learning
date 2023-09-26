@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import DeferView from "./views/defer.vue"
+import CanvasDemo from "./views/canvas-demo.vue"
 </script>
 
 <template>
-  <defer-view></defer-view>
+  <canvas-demo></canvas-demo>
 </template>
 
 <style scoped>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <form action="/submit" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- <input id="sheetjsexport" type="submit" value="Submit"> -->
+        <button id="sheetjsexport"><b>Export as XLSX</b></button>
+    </form>
+    <script>
+
+        document.getElementById("sheetjsexport").addEventListener('click', function () {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let json = [
+                {Name: name, Email: email}
+            ]
+            /* Create worksheet from HTML DOM TABLE */
+            var ws = XLSX.utils.json_to_sheet(json);
+            var wb = XLSX.utils.book_new();
+            /* Export to file (start a download) */
+            XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
+            XLSX.writeFile(wb, "SheetJSTable.xlsx");
+        });
+    </script>
+</body>
+
+</html>
