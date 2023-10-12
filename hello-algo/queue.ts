@@ -1,53 +1,64 @@
 
-{
-    class ListNode {
-        val: number
-        next: ListNode | null
-        constructor(val?: number, next?: ListNode | null) {
-            this.val = val || 0
-            this.next = next || null
-        }
+import ListNode from "./ListNode"
+
+class LinkedListNodeQueue<T> {
+    constructor() {
+        this.#head = null
+        this.#tail = null
     }
-    class LinkedListQueue {
 
-        private head: ListNode | null
-        private tail: ListNode | null
-        private size: number
+    #head: ListNode<T> | null
+    #tail: ListNode<T> | null
 
-        constructor() {
-
-        }
-
-        push(val: number) {
-            const node = new ListNode(val)
-            if (!this.head) {
-                this.head = node
-                this.tail = node
-            } else {
-                this.head.next = node
-                this.tail = node
-            }
-            this.size++
-        }
-
-        pop(): number {
-            let num = this.peek()
-            if (!this.head) throw new Error('empty')
-            this.head = this.head.next
-            this.size--
-            return num
-        }
-
-        peek(): number {
-            if (this.size === 0) throw new Error('empty')
-            return this.head!.val
+    push(item: T) {
+        const newItem = new ListNode(item)
+        if (!this.#head) {
+            this.#head = newItem
+            this.#tail = newItem
+        } else {
+            this.#tail!.next = newItem
+            this.#tail = newItem
         }
     }
 
-    let lq = new LinkedListQueue()
-    lq.push(1)
-    lq.push(2)
-    console.log(lq.peek())
-    console.log(lq.pop())
-    console.log(lq.peek())
+    pop(): (T | null) {
+        if (!this.#head) {
+            return null
+        }
+        const item = this.#head.data
+        this.#head = this.#head.next
+        if (!this.#head) {
+            this.#tail = null
+        }
+        return item
+    }
+
+    peek(): (T | null) {
+        if (!this.#head) {
+            return null
+        }
+        return this.#head.data
+    }
 }
+
+class ArrayQueue<T> {
+    constructor() {
+        this.#items = []
+    }
+
+    #items: T[]
+
+    push(item: T) {
+        this.#items.push(item)
+    }
+
+    pop(): T | undefined {
+        return this.#items.shift()
+    }
+
+    peek(): T | undefined {
+        return this.#items[0]
+    }
+}
+
+export { LinkedListNodeQueue, ArrayQueue }

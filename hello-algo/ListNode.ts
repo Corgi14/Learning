@@ -1,8 +1,9 @@
-class ListNode {
-    val: number
-    next: ListNode | null
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = val || 0
-        this.next = next || null
+class ListNode<T> {
+    data: T
+    next: ListNode<T> | null
+    constructor(data: T) {
+        this.data = data
     }
 }
+
+export default ListNode
