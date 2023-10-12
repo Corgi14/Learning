@@ -1,6 +1,7 @@
 ## 框架
 
 ## 技术
+### 尾递归
 - [ ] [尾调用优化(尾递归)](http://ruanyifeng.com/blog/2015/04/tail-call.html)
 - 尾调用 函数的最后一步是调用另一个函数
 - 尾调用优化 
@@ -65,3 +66,20 @@
     const factorial = currying(tailFactorial, 1);
     factorial(5) // 120
     ```
+### 箭头函数和普通函数this区别
+ - 普通函数：调用包含自己函数对应的对象
+ - 箭头函数：定义该函数时所在的作用域指向的对象
+箭头函数内部不可以使用arguments对象。
+箭头函数不可以当做构造函数。
+
+### vue2/3的区别
+ - 生命周期：Vue3 在组合式API（Composition API，下面展开）中使用生命周期钩子时需要先引入，而 Vue2 在选项API（Options API）中可以直接调用生命周期钩子
+ - 多根节点：vue2 模板中如果使用多个根节点时会报错；vue3不会
+ - 组合式api：
+   - Vue2 是选项API（Options API），一个逻辑会散乱在文件不同位置（data、props、computed、watch、生命周期钩子等），导致代码的可读性变差。当需要修改某个逻辑时，需要上下来回跳转文件位置。
+   - Vue3 组合式API（Composition API）则很好地解决了这个问题，可将同一逻辑的内容写到一起，增强了代码的可读性、内聚性，其还提供了较为完美的逻辑复用性方案。
+ - 异步组件：允许程序在等待异步组件加载完成前渲染兜底的内容，使用它，需在模板中声明，并包括两个命名插槽：default 和 fallback。Suspense 确保加载完异步内容时显示默认插槽，并将 fallback 插槽用作加载状态。
+ - Teleport：Vue3 提供 Teleport 组件可将部分 DOM 移动到 Vue app 之外的位置。比如项目中常见的 Dialog 弹窗。
+ - 响应式原理：Vue2 响应式原理基础是 Object.defineProperty；Vue3 响应式原理基础是 Proxy。
+
+### forEach for...in for...of原理

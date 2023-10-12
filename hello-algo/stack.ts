@@ -1,12 +1,5 @@
 {
-    class ListNode {
-        val: number
-        next: ListNode | null
-        constructor(val?: number, next?: ListNode | null) {
-            this.val = val || 0
-            this.next = next || null
-        }
-    }
+    
 
     class LinkedListStack {
 
@@ -18,7 +11,7 @@
             this.__size = 0
         }
 
-        peek(): number {
+        top(): number {
             if (!this.head) {
                 throw new Error('empty')
             }
@@ -32,7 +25,7 @@
         }
 
         pop(): number {
-            let popVal = this.peek()
+            let popVal = this.top()
             if (!this.head) {
                 throw new Error('empty')
             }
@@ -54,8 +47,30 @@
     let stack = new LinkedListStack()
     stack.push(1)
     stack.push(2)
-    stack.peek()
+    stack.top()
     stack.pop()
     stack.isEmpty
     stack.size
+}
+{
+    class ArrayStack {
+        private stack: number[]
+        constructor() {
+            this.stack = []
+        }
+
+        peek(): number | undefined {
+            if (this.stack.length == 0) throw new Error('empty')
+            return this.stack[this.stack.length]
+        }
+
+        push(val: number) {
+            this.stack.push(val)
+        }
+
+        top(): number | undefined {
+            if (this.stack.length == 0) throw new Error('empty')
+            return this.stack.pop()
+        }
+    }
 }
