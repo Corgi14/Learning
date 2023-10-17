@@ -39,6 +39,10 @@ class LinkedListNodeQueue<T> {
         }
         return this.#head.data
     }
+
+    isEmpty(): boolean {
+        return this.#head === null
+    }
 }
 
 class ArrayQueue<T> {
@@ -58,6 +62,10 @@ class ArrayQueue<T> {
 
     peek(): T | undefined {
         return this.#items[0]
+    }
+
+    isEmpty(): boolean {
+        return this.#items.length === 0
     }
 }
 

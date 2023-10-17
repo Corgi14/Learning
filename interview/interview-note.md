@@ -25,7 +25,11 @@
 - [ ] webpack原理以及如何编辑webpack脚本
 - [ ] babel原理
 - [ ] router传参方式
+- [ ] vue的数据绑定
 ### 自添加
 - [ ] 柯里化
 - [ ] webpack原理
 - [ ] ts js转换:类 private
+- [ ] axios
+- [ ] promise
+- [ ] react的数据绑定
