@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #23262d;
+        }
+        .container {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 10px;
+            transition: 0.4s;
+        }
+        .item {
+            background: hsl(calc(var(--i) * 40), 100%, 74%);
+             /* background-color: rebeccapurple; */
+        }
+        .container:has(.item:nth-child(1):hover) {
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 2fr 1fr 1fr;
+        }
+        .container:has(.item:nth-child(2):hover) {
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 2fr 1fr 1fr;
+        }
+        .container:has(.item:nth-child(3):hover) {
+            grid-template-columns: 1fr 1fr 2fr;
+            grid-template-rows: 2fr 1fr 1fr;
+        }
+        .container:has(.item:nth-child(4):hover) {
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 1fr 2fr 1fr;
+        }
+        .container:has(.item:nth-child(5):hover) {
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 1fr 2fr 1fr;
+        }
+        .container:has(.item:nth-child(6):hover) {
+            grid-template-columns: 1fr 1fr 2fr;
+            grid-template-rows: 1fr 2fr 1fr;
+        }
+        .container:has(.item:nth-child(7):hover) {
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 2fr;
+        }
+        .container:has(.item:nth-child(8):hover) {
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 1fr 1fr 2fr;
+        }
+        .container:has(.item:nth-child(9):hover) {
+            grid-template-columns: 1fr 1fr 2fr;
+            grid-template-rows: 1fr 1fr 2fr;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item" style="--i:1;"></div>
+        <div class="item" style="--i:2;"></div>
+        <div class="item" style="--i:3;"></div>
+        <div class="item" style="--i:4;"></div>
+        <div class="item" style="--i:5;"></div>
+        <div class="item" style="--i:6;"></div>
+        <div class="item" style="--i:7;"></div>
+        <div class="item" style="--i:8;"></div>
+        <div class="item" style="--i:9;"></div>
+    </div>
+</body>
+</html>

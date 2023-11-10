@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+<script type="text/javascript">
+    /** @type {HTMLCanvasElement} */
+    const canvas = document.querySelector('#canvas')
+    const ctx = canvas.getContext('2d')
+
+    let time = 0
+
+    const colors = '#2eebff,#42ff27,#fff64a,#ffaa00,#fc8738,#ff3333,#f967d0,#f769c8,#275ffc'.split(",")
+    canvas.width = "500"
+    canvas.height = "500"
+    let flag = 5
+    function raf() {
+        ctx.clearRect(0, 0, 500, 500)
+        if (time > 99) {
+            let tail = colors.pop()
+            colors.unshift(tail)
+        }
+        const gradient = ctx.createLinearGradient(0 + time, 0, 500 + time, 500)
+        
+        colors.forEach((x,i) => {
+            gradient.addColorStop(i / colors.length, x)
+        })
+
+        ctx.font = 'bold 80px serif'
+        ctx.fillStyle = gradient
+        ctx.fillText("ChineseTea", 50, 100);
+        time += flag
+        if (time > 100) time = 0
+        console.log(time)
+        requestAnimationFrame(raf)
+    }
+
+    this.raf()
+
+
+
+</script>
+
+</html>

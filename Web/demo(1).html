@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+<script type="text/javascript">
+const canvas = document.createElement('canvas');
+canvas.width = 400;
+canvas.height = 200;
+document.body.appendChild(canvas);
+
+// 获取绘制上下文
+const ctx = canvas.getContext('2d');
+
+// 初始颜色和渐变起点
+let colors = ['red', 'green', 'blue'];
+let x = 0;
+
+// 更新渐变的动画效果
+function updateGradient() {
+  // 清空 canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // 创建线性渐变对象
+  const gradient = ctx.createLinearGradient(x, 0, canvas.width + x, 0);
+  gradient.addColorStop(0, colors[0]); // 起始颜色
+  gradient.addColorStop(0.5, colors[1]); // 中间颜色
+  gradient.addColorStop(1, colors[2]); // 结束颜色
+
+  // 设置渐变作为文字的填充样式
+  ctx.fillStyle = gradient;
+
+  // 绘制文字
+  ctx.font = '30px Arial';
+  ctx.fillText("ChineseTea", 50, 100);
+
+  // 更新渐变起点
+  x += 1;
+  if (x > canvas.width) {
+    x = -canvas.width;
+  }
+
+  // 循环调用动画更新
+  requestAnimationFrame(updateGradient);
+}
+
+// 启动动画效果
+updateGradient();
+
+</script>
+
+</html>
