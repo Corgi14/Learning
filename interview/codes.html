@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function foo() {
+        setTimeout(() => {
+            console.log('=> id: ', this.id)
+        }, 1000)
+        setTimeout(function () {
+            // console.log(this)
+            console.log('id: ', this.id)
+        }, 1000)
+    }
+
+    var id = 21
+
+    foo.call({id: 42})
+    // foo()
+    // const demo = {
+    //     a: 'a',
+    //     b: function() {
+    //         console.log(this)
+    //         console.log(this.a)
+    //     },
+    //     c: () => {
+    //         console.log(this)
+    //         console.log(this.a)
+    //     }
+    // }
+    // demo.b()
+    // demo.c()
+    // demo.c.apply({a:'c'})
+</script>
+
+</html>
