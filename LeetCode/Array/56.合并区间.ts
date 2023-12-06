@@ -6,7 +6,7 @@
 
 // @lc code=start
 function merge(intervals: number[][]): number[][] {
-    if (intervals == null || intervals.length == 0) {
+    if (intervals.length == 0) {
         return new Array<number[]>()
     }
     intervals.sort((a: number[], b: number[]) => a[0] - b[0])
@@ -15,7 +15,7 @@ function merge(intervals: number[][]): number[][] {
     for (let index = 1; index < intervals.length; index++) {
         const cur = intervals[index];
         const tail = res[res.length - 1]
-        if (cur[0] <= tail[1]) {
+        if (cur[0] <= tail[1] ) {
             tail[1] = Math.max(tail[1], cur[1])
         } else {
             res.push(cur)

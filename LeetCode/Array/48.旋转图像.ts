@@ -9,29 +9,27 @@
  Do not return anything, modify matrix in-place instead.
  */
 function rotate(matrix: number[][]): void {
-    if(matrix.length == 0 || matrix == null) {
-        return
-    }
-    for (let m = 0; m < matrix.length; m++) {
-        for (let n = 0; n < m; n++) {
-            let tmp = matrix[m][n]
-            matrix[m][n] = matrix[n][m]
-            matrix[n][m] = tmp
+    let n = matrix.length
+    for (let i = 0; i < n; i++) {
+        for(let j = i; j < n; j++) {
+            let tmp = matrix[i][j]
+            matrix[i][j] = matrix[j][i]
+            matrix[j][i] = tmp
         }
     }
     for (const arr of matrix) {
         reverse(arr)
     }
 };
-
 function reverse(arr: number[]): void {
-    let left = 0, right = arr.length - 1
-    while(left < right) {
-        let tmp = arr[left]
-        arr[left] = arr[right]
-        arr[right] = tmp
-        left++
-        right--
+    let i = 0
+    let j = arr.length - 1
+    while (i < j) {
+        let tmp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = tmp
+        j--
+        i++
     }
 }
 // @lc code=end

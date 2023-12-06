@@ -1,11 +1,19 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import DeferView from "./views/defer.vue"
-import CanvasDemo from "./views/canvas-demo.vue"
+// import CanvasDemo from "./views/canvas-demo.vue"
+import showMsg from './views/message-tool/index.jsx'
+const close = () => {
+  console.log('a')
+  showMsg('a', (close) => {
+    close()
+  })
+}
 </script>
 
 <template>
-  <canvas-demo></canvas-demo>
+  <!-- <canvas-demo></canvas-demo> -->
+  <button @click="close">Hello</button>
 </template>
 
 <style scoped>
