@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moveable video</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background-color: #434750;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell" style="width: 100%">
+      <img src="/src/file.png" alt="banner" style="width: 100%; height: 100%; transform: translate(0px, -8px)" />
+    </div>
+    <script>
+      const shell = document.querySelector(".shell");
+      const img = document.querySelector("img");
+      shell.addEventListener("mouseenter", function (e) {
+        this.x = e.clientX;
+        img.style.transition = "none";
+      });
+      shell.addEventListener("mousemove", function (e) {
+        this._x = e.clientX;
+        const disx = this._x - this.x;
+        const move = 36 - disx / -20;
+        img.style.transform = `translate(${move}px, -8px)`;
+      });
+      shell.addEventListener("mouseleave", function (e) {
+        img.style.transition = "1s";
+        img.style.transform = "translate(0px, -8px)";
+      });
+    </script>
+  </body>
+</html>

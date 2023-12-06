@@ -1,5 +1,0 @@
-<i class="iconfont icon-all"></i><span>all</span>
-<i class="iconfont icon-auto"></i><span>auto</span>
-<i class="iconfont icon-bussiness-man"></i><span>business</span>
-<i class="iconfont icon-component"></i><span>conponent</span>
-<i class="iconfont icon-code"></i><span>code</span>

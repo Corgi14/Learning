@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background-color: #434750;
+        display: flex;
+        justify-content: center;
+      }
+      .wrap {
+        width: 1000px;
+        position: relative;
+        top: 100px;
+      }
+      .wrap::after {
+        content: "";
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        width: 5px;
+        z-index: -999;
+        height: 1000px;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      .box {
+        position: relative;
+        width: 100%;
+        height: 120px;
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .left,
+      .right {
+        position: relative;
+        width: 40%;
+        height: 120px;
+        border-radius: 15px;
+        text-align: center;
+        color: rgb(90, 90, 90);
+      }
+      .box:nth-child(even) .left {
+        background-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+      .box:nth-child(odd) .right {
+        background-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+      .center {
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .center > span {
+        width: 120px;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 50px;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="box">
+        <div class="left"></div>
+        <div class="center">
+          <span>2017</span>
+        </div>
+        <div class="right">
+          Many transitional words are nearly synonymous: words that broadly indicate that “this follows logically from
+          the preceding” include accordingly, therefore, and consequently.
+        </div>
+      </div>
+      <div class="box">
+        <div class="left">
+          Many transitional words are nearly synonymous: words that broadly indicate that “this follows logically from
+          the preceding” include accordingly, therefore, and consequently.
+        </div>
+        <div class="center">
+          <span>2018</span>
+        </div>
+        <div class="right"></div>
+      </div>
+      <div class="box">
+        <div class="left"></div>
+        <div class="center">
+          <span>2019</span>
+        </div>
+        <div class="right">
+          Many transitional words are nearly synonymous: words that broadly indicate that “this follows logically from
+          the preceding” include accordingly, therefore, and consequently.
+        </div>
+      </div>
+      <div class="box">
+        <div class="left">
+          Many transitional words are nearly synonymous: words that broadly indicate that “this follows logically from
+          the preceding” include accordingly, therefore, and consequently.
+        </div>
+        <div class="center">
+          <span>2020</span>
+        </div>
+        <div class="right"></div>
+      </div>
+      <div class="box">
+        <div class="left"></div>
+        <div class="center">
+          <span>2021</span>
+        </div>
+        <div class="right">
+          Many transitional words are nearly synonymous: words that broadly indicate that “this follows logically from
+          the preceding” include accordingly, therefore, and consequently.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

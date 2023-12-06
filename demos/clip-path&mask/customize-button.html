@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://fonts.googlefonts.cn/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
+    <title>Customize Button</title>
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #3d3d3d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      a {
+        position: relative;
+        padding: 15px 40px;
+        background: #fff;
+        color: #3d3d3d;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 2px;
+        transition: 0.3s;
+        -webkit-clip-path: polygon(90% 0, 100% 50%, 90% 100%, 0% 100%, 10% 50%, 0 0);
+        clip-path: polygon(90% 0, 100% 50%, 90% 100%, 0% 100%, 10% 50%, 0 0);
+      }
+      a:hover {
+        background: #81ecec;
+        color: #fff;
+        letter-spacing: 4px;
+        -webkit-clip-path: polygon(100% 0, 90% 50%, 100% 100%, 10% 100%, 0 50%, 10% 0);
+        clip-path: polygon(100% 0, 90% 50%, 100% 100%, 10% 100%, 0 50%, 10% 0);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#">Button</a>
+  </body>
+</html>

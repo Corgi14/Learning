@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masonry layout</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background-color: #434750;
+        display: flex;
+        justify-content: center;
+      }
+      .shell {
+        max-width: 1300px;
+        column-count: 5;
+        column-gap: 15px;
+      }
+      .image {
+        margin-bottom: 15px;
+      }
+      .image img {
+        width: 100%;
+      }
+      @media (max-width: 1200px) {
+        .shell {
+          column-count: 4;
+        }
+      }
+      @media (max-width: 850px) {
+        .shell {
+          column-count: 3;
+        }
+      }
+      @media (max-width: 600px) {
+        .shell {
+          column-count: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="image"><img src="/src/img-1.png" /></div>
+      <div class="image"><img src="/src/img-2.png" /></div>
+      <div class="image"><img src="/src/img-3.png" /></div>
+      <div class="image"><img src="/src/img-4.png" /></div>
+      <div class="image"><img src="/src/img-5.png" /></div>
+      <div class="image"><img src="/src/img-6.png" /></div>
+      <div class="image"><img src="/src/img-7.png" /></div>
+      <div class="image"><img src="/src/img-8.png" /></div>
+      <div class="image"><img src="/src/img-9.png" /></div>
+      <div class="image"><img src="/src/img-10.png" /></div>
+      <div class="image"><img src="/src/img-11.png" /></div>
+      <div class="image"><img src="/src/img-12.png" /></div>
+      <div class="image"><img src="/src/img-13.png" /></div>
+      <div class="image"><img src="/src/img-14.png" /></div>
+      <div class="image"><img src="/src/img-15.png" /></div>
+      <div class="image"><img src="/src/img-16.png" /></div>
+      <div class="image"><img src="/src/img-17.png" /></div>
+      <div class="image"><img src="/src/img-18.png" /></div>
+      <div class="image"><img src="/src/img-19.png" /></div>
+      <div class="image"><img src="/src/img-20.png" /></div>
+      <div class="image"><img src="/src/img-21.png" /></div>
+    </div>
+  </body>
+</html>

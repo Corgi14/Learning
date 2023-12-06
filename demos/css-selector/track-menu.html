@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track menu</title>
+    <style>
+      @import url("https://fonts.font.im/css?family=Poppins:300,300i,400,400i,600,600i");
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background-color: #434750;
+        display: flex;
+        justify-content: center;
+      }
+      .a {
+        position: relative;
+        top: 400px;
+        display: flex;
+        box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+      }
+      .a a {
+        width: 150px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 30px;
+        text-decoration: none;
+        color: seashell;
+      }
+      .b {
+        position: absolute;
+        left: 0;
+        width: 150px;
+        height: 60px;
+        border-radius: 10px;
+        background-color: rgb(100, 100, 100);
+        z-index: -999;
+        transition: 0.5s;
+      }
+      .a a:nth-child(2):hover ~ .b {
+        left: calc(150px * 1);
+      }
+      .a a:nth-child(3):hover ~ .b {
+        left: calc(150px * 2);
+      }
+      .a a:nth-child(4):hover ~ .b {
+        left: calc(150px * 3);
+      }
+      .a a:nth-child(5):hover ~ .b {
+        left: calc(150px * 4);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a">
+      <a href="#">阿巴</a>
+      <a href="#">阿巴</a>
+      <a href="#">阿巴</a>
+      <a href="#">阿巴</a>
+      <a href="#">阿巴</a>
+      <div class="b"></div>
+    </div>
+  </body>
+</html>

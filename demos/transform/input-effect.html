@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://fonts.googlefonts.cn/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
+    <title>Text field</title>
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(67, 71, 80);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .inputBox {
+        position: relative;
+        width: 250px;
+      }
+      .inputBox input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgb(67, 71, 80);
+        border-radius: 5px;
+        outline: none;
+        color: #fff;
+        font-size: 1em;
+        transition: 0.5s;
+      }
+      .inputBox span {
+        position: absolute;
+        left: 0;
+        padding: 10px;
+        pointer-events: none;
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 1em;
+        text-transform: uppercase;
+        transition: 0.3s;
+      }
+      .inputBox input:valid ~ span,
+      .inputBox input:focus ~ span {
+        color: aqua;
+        transform: translateY(-7px) translateX(10px);
+        font-size: 0.65em;
+        background: rgb(67, 71, 80);
+        padding: 0 10px;
+        border-left: 1px solid aqua;
+        border-right: 1px solid aqua;
+        letter-spacing: 0.2em;
+      }
+      .inputBox input:valid,
+      .inputBox input:focus {
+        border: 1px solid aqua;
+      }
+      .inputBox:nth-child(2) input:valid ~ span,
+      .inputBox:nth-child(2) input:focus ~ span {
+        background: aqua;
+        color: rgb(67, 71, 80);
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inputBox">
+      <input type="text" required="required" />
+      <span>First Name</span>
+    </div>
+    <div class="inputBox">
+      <input type="text" required="required" />
+      <span>Last Name</span>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collapse menu</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        height: 100vh;
+        background-color: #d0d7e4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .shell {
+        position: fixed;
+        width: 280px;
+        height: 480px;
+        background-color: #7a87a5;
+      }
+      .buttons {
+        margin: 60px 0;
+        color: #fff;
+      }
+      .li {
+        letter-spacing: 2px;
+        font-weight: 600;
+        font-size: 12px;
+        padding: 16px 52px;
+        transition: 0.3s;
+        user-select: none;
+        cursor: pointer;
+      }
+      .li::after {
+        content: "";
+        position: absolute;
+        left: 20px;
+        margin-top: -22px;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border-radius: 50%;
+      }
+      .li ul {
+        width: 0px;
+        height: 360px;
+        padding: 60px 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+        background-color: #4e6696;
+        transition: 0.3s;
+      }
+      .li ul li {
+        padding: 16px 24px;
+        /* transition: 0.5s; */
+        /* user-select: none; */
+      }
+      .li:hover ul {
+        width: 228px;
+        cursor: pointer;
+      }
+      .li ul li:hover {
+        background-color: #9eaac5;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="shell">
+      <ul class="buttons">
+        <li class="li">
+          China
+          <ul>
+            <li>Geely</li>
+            <li>Haval</li>
+            <li>BYD</li>
+            <li>Lynk & Co</li>
+          </ul>
+        </li>
+        <li class="li">
+          Japan
+          <ul>
+            <li>Honda</li>
+            <li>Toyota</li>
+            <li>Nissan</li>
+            <li>Mazda</li>
+            <li>Subaru</li>
+          </ul>
+        </li>
+        <li class="li">
+          America
+          <ul>
+            <li>Ford</li>
+            <li>Buick</li>
+            <li>Chevrolet</li>
+            <li>Cadillac</li>
+            <li>Jeep</li>
+            <li>Tesla</li>
+          </ul>
+        </li>
+        <li class="li">
+          Germany
+          <ul>
+            <li>Volkswagen</li>
+            <li>Mecedes Benz</li>
+            <li>BMW</li>
+            <li>Porsche</li>
+            <li>Skoda</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>

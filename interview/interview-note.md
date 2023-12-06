@@ -39,3 +39,20 @@
 - [ ] axios
 - [ ] promise
 - [ ] react的数据绑定
+
+### 美团
+- [ ] 宏任务微任务
+- [ ] Promise
+- [ ] vite优点
+- [ ] script async 标签
+- [ ] 节流防抖
+- [ ] vue权限管理
+- [ ] set map
+- [ ] 数据类型
+- [ ] 数组常用方法
+- [ ] typeof instanceof
+- [ ] 事件循环
+- [ ] js存储方式
+- [ ] 登陆实现
+- [ ] html、css、js三者的加载顺序
+- [ ] es6的模块引入和es5有什么区别
